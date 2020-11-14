@@ -1,9 +1,6 @@
 /**
  * https://likailee.site
  * CopyRight (c) 2020
- *
- * @author likailee.llk
- * @version Trie.java 2020/11/14 Sat 1:25 PM likai
  */
 
 import java.util.ArrayList;
@@ -97,23 +94,6 @@ public class Trie {
             // traverse new node's children
             addWordToTrie(curNode, word, wordStart, wordEnd, wordIdx, allWords);
         } else {
-            // curNode does not have a child, which means the end of prefix search,
-            // split the current node by prefix, and insert the new prefix as current node's child
-            /*if (curNode.firstChild == null) {
-                // split curNode, update curNode's prefix end position
-                short curNodeEndPos = (short) (curNodeSubstr.startIndex + prefixLen - 1);
-                curNode.substr = new Indexes(curNodeSubstr.wordIndex, curNodeSubstr.startIndex, curNodeEndPos);
-                // insert a new prefix node which is the sibling of splited node
-                Indexes wordSubstr = new Indexes(wordIdx, newWordStartPos, wordEnd);
-                TrieNode wordNode = new TrieNode(wordSubstr, null, null);
-                // the new child splited from curNode, which has a new start position
-                Indexes childSubstr = new Indexes(curNodeSubstr.wordIndex, (short) (curNodeEndPos + 1), curNodeSubstr.endIndex);
-                curNode.firstChild = new TrieNode(childSubstr, null, wordNode);
-            } else {
-                // has more prefix node, then traverse curNode's children
-            }
-            System.out.println("node: " + curNodeStr + " prefix: " + word + " old: " + wordStart + " new: " + newWordStartPos);
-            */
             // remove the matched part, and start the new prefix matching
             String trimWord = word.substring(prefixLen);
             // calculate the next prefix start position
